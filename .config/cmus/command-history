@@ -1,0 +1,181 @@
+add ~/Music
+set replaygain=album-preferred
+unbind -f common toggle play_sorted o
+mon n search-next
+unbind -f common o toggle play_sorted
+unbind o toggle play_sorted
+unbind toggle play_sorted
+unbind o
+set play_sorted=false
+set continue=false
+set replaygain=disabled
+add ~/Musi
+pl-create Recent
+bind -f common 3 view browser
+bind -f common 2 view playlist
+set play_sorted=fals
+set play_library=true
+add ~/Mus``
+pl-create Default
+add /Users/nguyen/Misc/Recent Music.savedSearch/
+add /Users/nguyen/Misc/Recent Music.savedSearch
+add ~/Music\
+live-filter
+bind -f common ` push add ~/Music
+add ~/Dropbox/Music
+add ~/Dropbox/Music/Kanye West/
+add /Users/nguyen/Dropbox/Music/Jonathan Coulton/Artificial Heart (2011)
+bind -f common 4 view queue
+bind -f common 3 view playlist
+unbind -f common 6
+bind -f common 6
+bind -f common 4 view playlist
+bind -f common 3 view queue
+bind -f common 2 view browser
+add ~/Dropbox/Music/Regina Spektor/
+set output_plugin=coreaudio
+q
+xki
+colorscheme
+set format_current= %t ? %a ? %l ? %y ? %g ?
+set format_current= %t  %a  %y l%l   yg 
+set format_current= %t  %a  %y l%l  yg 
+set format_title=%a - %l - %t (%y)
+set format_statusline= %{?show_playback_position?%{position} %{?duration?/ %{duration}}?%{?duration?%{duration}}} - %1{continue}%1{follow}%1{shuffle}%1{repeat} - %{?repeat_current?repeat current?%{?play_library?%{playlist_mode} from %{?play_sorted?sorted }library?playlist}} 
+set format_trackwin= %02n. %t %{if y then (%y)}%= %d
+set format_trackwin= %02n. %t %{if y then (%y)}%= %dd
+set format_trackwin_va= %t%= %a  %d
+set format_trackwin_va= %{if %n then (%02n)} %t%= %a  %d
+add ~/Dropbox/Music\
+set pl_sort=albumartist date album discnumber tracknumber title filename
+set lib_sort=albumartist date album discnumber tracknumber title filename
+set pl_sort=
+sort
+clear 
+unbind -f common S-right
+unbind -f common S-right seek +5
+unbind -f common S-left
+bind -f common < seek -5
+bind -f common > seek +5
+bind -f common > seek -5
+seek +40
+seek +10
+set status_display_program=~/.config/cmus/cmus-cover-art/observe.sh
+unbind -f common m
+bind -f common m
+bind -f common a toggle aaa_mode
+set format_playlist= %-21%a %3n. %t%= %y %d %{?X!=0?%3X ?    }
+set color_error=red
+set color_titleline_fg=black
+set color_titleline_fg=gray
+set color_titleline_fg=white
+set color_titleline_fg=red
+set color_win_cur_sel_fg=black
+set color_win_cur_sel_fg=red
+set color_win_sel_fg=black
+set color_win_sel_fg=red
+set color_win_sel_fg=black1
+set color_win_title_fg=black
+set color_win_title_fg=red
+set color_win_sel_fg=white
+set color_win_sel_fg=magenta
+set color_win_fg=default
+set color_statusline_fg=black
+set color_statusline_fg=lightmagenta
+set color_statusline_fg=magenta
+set color_statusline_fg=red
+set color_statusline_bg=gray
+set color_statusline_fg=white
+set color_statusline_attr=default
+set color_win_bg=black
+set color_win_bg=blue
+set color_win_bg=red
+set color_win_fg=red
+set color_separator=magenta
+set color_separator=yellow
+set color_separator=red
+set color_separator=blue
+bind -f common = vol 100%
+bind common = vol 100%
+bind common + vol +10%
+vol 100
+vol 0
+bind common - vol -10%
+bind common = vol +10%
+vol +100%
+vol -10%
+set vol=100
+vol +10%
+vol +1-%
+set softvol=true
+vol +30%
+vol =30%
+set color_titleline_attr=black
+set color_titleline_attr=yellow
+vsvsvsvsvs 
+set color_win_fg=yellow
+set color_win_title_bg=magenta
+set color_win_sel_bg=green
+set color_win_inactive_cur_sel_fg=green
+set color_win_cur_sel_bg=green
+set color_win_cur=green
+set color_statusline_fg=gray
+set color_info=magenta
+set color_info=red
+set color_titleline_bg=magenta
+add ~/Dropbox/Music/Various Aritsts/Compilation - Japanese/Kimi Janakya Dame Mitai (Gekkan Shoujo Nozaki-kun OP) - Masayoshi Ooishi.mp3
+add ~/Dropbox/Musick
+`
+add ~/Dropbox/Musicq
+bind -f common l win-next
+bind -f common h win-next
+filt
+bind -f common \ update-cache
+bind -f common ^C echo Type :quit<enter> to exit cmus.
+bind -f common \ win-update
+update-cache 
+win-update
+set color_win_inactive_cur_sel_fg=yellow
+set color_win_cur=yellow
+set color_win_cur_sel_bg=yellow
+set color_win_cur_sel_bg=red
+set color_win_sel_bg=yellow
+bind -f common \ win-update-cache
+bind -f queue backspace clear
+bind -f playlist backspace clear
+bind -f common , player-prev
+bind -f common . player-next
+bind -f common u win-page-up
+bind -f common ` push add ~/Dropbox/Music
+bind -f common U win-update-cache
+bind -f browser U win-update-cache
+set format_trackwin_album= %l %= %y
+set format_trackwin_album= %l %= %a
+set format_trackwin_album= %l %= %d
+set format_trackwin_album= %l %= %g
+set format_treewin=  (%y) %l
+set format_trackwin_album= %l%= %y
+set format_trackwin_album= %l%= %y 
+set format_trackwin= %t%= %a  %d
+set format_trackwin_va= %t%= %a  %d 
+set format_trackwin_va= %a%= %a  %d
+set format_trackwin= %t%= %a  %d 
+set format_trackwin= %t%= %a   %d 
+set format_trackwin= %t%= %a    %d 
+set format_trackwin_va= %a%= %a   %d
+bind -f common q quit
+bind -f common right win-next
+bind -f common m toggle aaa_mode
+bind -f common left win-next
+bind -f common m toggle aaa_
+bind -f common left win-prev
+bind -f common h seek -5
+bind -f common 2 view queue
+bind -f common 0 view settings
+bind -f browser U win-update
+bind -f common z player-prev
+bind -f common v player-stop
+bind -f common x player-pause
+bind -f common c player-next
+bind -f common d win-page-down
+add ~/Dropbox/Music/
