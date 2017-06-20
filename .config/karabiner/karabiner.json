@@ -1,57 +1,87 @@
 {
     "global": {
-        "check_for_updates_on_startup": false,
+        "check_for_updates_on_startup": true,
         "show_in_menu_bar": true,
         "show_profile_name_in_menu_bar": false
     },
     "profiles": [
         {
-            "devices": [
-                {
-                    "disable_built_in_keyboard_if_exists": false,
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": false,
-                        "product_id": 50475,
-                        "vendor_id": 1133
-                    },
-                    "ignore": false,
-                    "keyboard_type": 0
-                },
-                {
-                    "disable_built_in_keyboard_if_exists": false,
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": false,
-                        "product_id": 657,
-                        "vendor_id": 1452
-                    },
-                    "ignore": false,
-                    "keyboard_type": 0
-                },
-                {
-                    "disable_built_in_keyboard_if_exists": false,
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": false,
-                        "product_id": 65535,
-                        "vendor_id": 1452
-                    },
-                    "ignore": false,
-                    "keyboard_type": 0
-                },
-                {
-                    "disable_built_in_keyboard_if_exists": false,
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": false,
-                        "product_id": 9497,
-                        "vendor_id": 1241
-                    },
-                    "ignore": false,
-                    "keyboard_type": 0
-                }
-            ],
+            "complex_modifications": {
+                "rules": [
+                    {
+                        "manipulators": [
+                            {
+                                "description": "Change caps_lock to Hyper.",
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_command",
+                                        "modifiers": [
+                                            "left_option",
+                                            "left_control",
+                                            "left_shift"
+                                        ]
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "escape"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Standalone Left Shift to (",
+                                "from": {
+                                    "key_code": "left_shift"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_shift"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "9",
+                                        "modifiers": [
+                                            "left_shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Standalone Right Shift to )",
+                                "from": {
+                                    "key_code": "right_shift"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_shift"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "0",
+                                        "modifiers": [
+                                            "right_shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "devices": [],
             "fn_function_keys": {
                 "f1": "vk_consumer_brightness_down",
                 "f10": "mute",
@@ -66,100 +96,213 @@
                 "f8": "f18",
                 "f9": "f19"
             },
-            "name": "MacBook",
-            "one_to_many_mappings": {
-                "caps_lock": [
-                    "left_control",
-                    "left_shift",
-                    "left_option",
-                    "left_command"
-                ]
-            },
-            "selected": true,
+            "name": "Macbook",
+            "selected": false,
             "simple_modifications": {},
-            "standalone_keys": {
-                "caps_lock": "escape"
-            },
+            "standalone_keys": {},
             "virtual_hid_keyboard": {
                 "caps_lock_delay_milliseconds": 0,
-                "keyboard_type": "ansi",
-                "standalone_keys_delay_milliseconds": 200
+                "keyboard_type": "ansi"
             }
         },
         {
-            "devices": [
-                {
-                    "disable_built_in_keyboard_if_exists": false,
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": false,
-                        "product_id": 50475,
-                        "vendor_id": 1133
-                    },
-                    "ignore": false,
-                    "keyboard_type": 0
-                },
-                {
-                    "disable_built_in_keyboard_if_exists": false,
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": false,
-                        "product_id": 657,
-                        "vendor_id": 1452
-                    },
-                    "ignore": false,
-                    "keyboard_type": 0
-                },
-                {
-                    "disable_built_in_keyboard_if_exists": false,
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": false,
-                        "product_id": 65535,
-                        "vendor_id": 1452
-                    },
-                    "ignore": false,
-                    "keyboard_type": 0
-                }
-            ],
+            "complex_modifications": {
+                "rules": [
+                    {
+                        "manipulators": [
+                            {
+                                "description": "Change caps_lock to Hyper.",
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_command",
+                                        "modifiers": [
+                                            "left_option",
+                                            "left_control",
+                                            "left_shift"
+                                        ]
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "escape"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Standalone Left Shift to (",
+                                "from": {
+                                    "key_code": "left_shift"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_shift"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "9",
+                                        "modifiers": [
+                                            "left_shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Standalone Right Shift to )",
+                                "from": {
+                                    "key_code": "right_shift"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_shift"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "0",
+                                        "modifiers": [
+                                            "right_shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "devices": [],
             "fn_function_keys": {
                 "f1": "vk_consumer_brightness_down",
                 "f10": "mute",
                 "f11": "volume_down",
-                "f12": "f12",
+                "f12": "volume_up",
                 "f2": "vk_consumer_brightness_up",
-                "f3": "vk_mission_control",
-                "f4": "f13",
+                "f3": "mission_control",
+                "f4": "f20",
                 "f5": "vk_consumer_illumination_down",
                 "f6": "vk_consumer_illumination_up",
-                "f7": "f7",
-                "f8": "f8",
-                "f9": "f9"
+                "f7": "f17",
+                "f8": "f18",
+                "f9": "f19"
             },
-            "name": "MSI",
-            "one_to_many_mappings": {
-                "caps_lock": [
-                    "left_control",
-                    "left_shift",
-                    "left_option",
-                    "left_command"
-                ]
-            },
+            "name": "TADA68",
             "selected": false,
-            "simple_modifications": {
-                "application": "right_option",
-                "left_command": "left_option",
-                "left_option": "left_command",
-                "pause": "f16",
-                "print_screen": "f14",
-                "right_option": "right_command",
-                "scroll_lock": "f15"
-            },
+            "simple_modifications": {},
             "standalone_keys": {},
             "virtual_hid_keyboard": {
                 "caps_lock_delay_milliseconds": 0,
-                "keyboard_type": "ansi",
-                "standalone_keys_delay_milliseconds": 200
+                "keyboard_type": "ansi"
+            }
+        },
+        {
+            "complex_modifications": {
+                "rules": [
+                    {
+                        "manipulators": [
+                            {
+                                "description": "Change caps_lock to Hyper.",
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_command",
+                                        "modifiers": [
+                                            "left_option",
+                                            "left_control",
+                                            "left_shift"
+                                        ]
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "escape"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Standalone Left Shift to (",
+                                "from": {
+                                    "key_code": "left_shift"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_shift"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "9",
+                                        "modifiers": [
+                                            "left_shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Standalone Right Shift to )",
+                                "from": {
+                                    "key_code": "right_shift"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_shift"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "0",
+                                        "modifiers": [
+                                            "right_shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "devices": [],
+            "fn_function_keys": {
+                "f1": "vk_consumer_brightness_down",
+                "f10": "mute",
+                "f11": "volume_down",
+                "f12": "volume_up",
+                "f2": "vk_consumer_brightness_up",
+                "f3": "mission_control",
+                "f4": "f20",
+                "f5": "vk_consumer_illumination_down",
+                "f6": "vk_consumer_illumination_up",
+                "f7": "f17",
+                "f8": "f18",
+                "f9": "f19"
+            },
+            "name": "MSI",
+            "selected": false,
+            "simple_modifications": {},
+            "standalone_keys": {},
+            "virtual_hid_keyboard": {
+                "caps_lock_delay_milliseconds": 0,
+                "keyboard_type": "ansi"
             }
         }
     ]
