@@ -9,11 +9,12 @@
             "complex_modifications": {
                 "parameters": {
                     "basic.to_delayed_action_delay_milliseconds": 500,
-                    "basic.to_if_alone_timeout_milliseconds": 1000
+                    "basic.to_if_alone_timeout_milliseconds": 1000,
+                    "basic.to_if_held_down_threshold_milliseconds": 500
                 },
                 "rules": [
                     {
-                        "description": "Caps Lock -> Hyper / Escape",
+                        "description": "Caps Lock → Hyper / Escape",
                         "manipulators": [
                             {
                                 "from": {
@@ -44,7 +45,28 @@
                         ]
                     },
                     {
-                        "description": "Semicolon <-> Colon",
+                        "description": "\\ → Caps Lock (when held down)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "backslash",
+                                    "modifiers": {
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to_if_held_down": [
+                                    {
+                                        "key_code": "caps_lock"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "; ↔ :",
                         "manipulators": [
                             {
                                 "from": {
@@ -369,7 +391,7 @@
                         ]
                     },
                     {
-                        "description": "( ) <-> {} <-> []",
+                        "description": "( ) ↔ { } ↔ [ ]",
                         "manipulators": [
                             {
                                 "from": {
@@ -408,7 +430,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            },        
+                            },
                             {
                                 "from": {
                                     "key_code": "open_bracket",
@@ -427,7 +449,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }, 
+                            },
                             {
                                 "from": {
                                     "key_code": "close_bracket",
@@ -446,7 +468,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            },                                                                                               
+                            },
                             {
                                 "from": {
                                     "key_code": "9",
@@ -461,10 +483,10 @@
                                 },
                                 "to": [
                                     {
-		                                "key_code": "open_bracket",
-		                                  "modifiers": [
-		                                      "left_shift"
-		                                	]																			
+                                        "key_code": "open_bracket",
+                                        "modifiers": [
+                                            "left_shift"
+                                        ]
                                     }
                                 ],
                                 "type": "basic"
@@ -483,10 +505,10 @@
                                 },
                                 "to": [
                                     {
-		                                "key_code": "close_bracket",
-		                                  "modifiers": [
-		                                      "left_shift"
-		                                	]																			
+                                        "key_code": "close_bracket",
+                                        "modifiers": [
+                                            "left_shift"
+                                        ]
                                     }
                                 ],
                                 "type": "basic"
@@ -700,7 +722,7 @@
                 }
             ],
             "name": "MacBook",
-            "selected": true,
+            "selected": false,
             "simple_modifications": [],
             "standalone_keys": {},
             "virtual_hid_keyboard": {
@@ -712,11 +734,64 @@
             "complex_modifications": {
                 "parameters": {
                     "basic.to_delayed_action_delay_milliseconds": 500,
-                    "basic.to_if_alone_timeout_milliseconds": 1000
+                    "basic.to_if_alone_timeout_milliseconds": 1000,
+                    "basic.to_if_held_down_threshold_milliseconds": 500
                 },
                 "rules": [
                     {
-                        "description": "Semicolon <-> Colon",
+                        "description": "Caps Lock → Hyper / Escape",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_shift",
+                                        "modifiers": [
+                                            "left_command",
+                                            "left_control",
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "escape"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "\\ → Caps Lock (when held down)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "backslash",
+                                    "modifiers": {
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to_if_held_down": [
+                                    {
+                                        "key_code": "caps_lock"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "; ↔ :",
                         "manipulators": [
                             {
                                 "from": {
@@ -759,30 +834,184 @@
                         ]
                     },
                     {
-                        "description": "Caps Lock -> Hyper / Escape",
+                        "description": "( ) ↔ { } ↔ [ ]",
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "caps_lock",
+                                    "key_code": "open_bracket",
                                     "modifiers": {
                                         "optional": [
-                                            "any"
+                                            "caps_lock"
                                         ]
                                     }
                                 },
                                 "to": [
                                     {
-                                        "key_code": "left_shift",
+                                        "key_code": "9",
                                         "modifiers": [
-                                            "left_command",
-                                            "left_control",
-                                            "left_option"
+                                            "left_shift"
                                         ]
                                     }
                                 ],
-                                "to_if_alone": [
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "close_bracket",
+                                    "modifiers": {
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
                                     {
-                                        "key_code": "escape"
+                                        "key_code": "0",
+                                        "modifiers": [
+                                            "left_shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "open_bracket",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "shift"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "open_bracket"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "close_bracket",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "shift"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "close_bracket"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "9",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "shift"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "open_bracket",
+                                        "modifiers": [
+                                            "left_shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "0",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "shift"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "close_bracket",
+                                        "modifiers": [
+                                            "left_shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "F13 → Mission Control | ⇧ + F13 → Home | ⇧ + F16 → End",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "f13",
+                                    "modifiers": {
+                                        "optional": [
+                                            "caps_lock",
+                                            "fn"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "mission_control"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "f13",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "shift"
+                                        ],
+                                        "optional": [
+                                            "fn"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "home"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "f16",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "shift"
+                                        ],
+                                        "optional": [
+                                            "fn"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "end"
                                     }
                                 ],
                                 "type": "basic"
@@ -1065,216 +1294,6 @@
                                         "modifiers": [
                                             "left_control"
                                         ]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "( ) <-> {} <-> []",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "open_bracket",
-                                    "modifiers": {
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "9",
-                                        "modifiers": [
-                                            "left_shift"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "close_bracket",
-                                    "modifiers": {
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "0",
-                                        "modifiers": [
-                                            "left_shift"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            },        
-                            {
-                                "from": {
-                                    "key_code": "open_bracket",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "shift"
-                                        ],
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "open_bracket"
-                                    }
-                                ],
-                                "type": "basic"
-                            }, 
-                            {
-                                "from": {
-                                    "key_code": "close_bracket",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "shift"
-                                        ],
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "close_bracket"
-                                    }
-                                ],
-                                "type": "basic"
-                            },                                                                                               
-                            {
-                                "from": {
-                                    "key_code": "9",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "shift"
-                                        ],
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-		                                "key_code": "open_bracket",
-		                                  "modifiers": [
-		                                      "left_shift"
-		                                	]																			
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "0",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "shift"
-                                        ],
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-		                                "key_code": "close_bracket",
-		                                  "modifiers": [
-		                                      "left_shift"
-		                                	]																			
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "F13 -> Mission Control | ⇧ + F13 -> Home | ⇧ + F16 -> End",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "f13",
-                                    "modifiers": {
-                                        "optional": [
-                                            "caps_lock",
-                                            "fn"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "mission_control"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "f13",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "shift"
-                                        ],
-                                        "optional": [
-                                            "fn"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "home"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "f16",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "shift"
-                                        ],
-                                        "optional": [
-                                            "fn"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "end"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "⌘ + ` = Caps-Lock",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "delete_or_backspace",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "shift"
-                                        ],
-                                        "optional": [
-                                            "caps_lock",
-                                            "option"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "delete_forward"
                                     }
                                 ],
                                 "type": "basic"
@@ -1643,7 +1662,7 @@
                 }
             ],
             "name": "Leopold",
-            "selected": false,
+            "selected": true,
             "simple_modifications": [],
             "virtual_hid_keyboard": {
                 "caps_lock_delay_milliseconds": 0,
@@ -1654,11 +1673,12 @@
             "complex_modifications": {
                 "parameters": {
                     "basic.to_delayed_action_delay_milliseconds": 500,
-                    "basic.to_if_alone_timeout_milliseconds": 1000
+                    "basic.to_if_alone_timeout_milliseconds": 1000,
+                    "basic.to_if_held_down_threshold_milliseconds": 500
                 },
                 "rules": [
                     {
-                        "description": "Semicolon <-> Colon",
+                        "description": "; ↔ :",
                         "manipulators": [
                             {
                                 "from": {
@@ -1701,7 +1721,7 @@
                         ]
                     },
                     {
-                        "description": "Caps Lock -> Hyper / Escape",
+                        "description": "Caps Lock → Hyper / Escape",
                         "manipulators": [
                             {
                                 "from": {
@@ -1978,7 +1998,7 @@
                         ]
                     },
                     {
-                        "description": "( ) <-> {} <-> []",
+                        "description": "( ) ↔ { } ↔ [ ]",
                         "manipulators": [
                             {
                                 "from": {
@@ -2017,7 +2037,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            },        
+                            },
                             {
                                 "from": {
                                     "key_code": "open_bracket",
@@ -2036,7 +2056,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }, 
+                            },
                             {
                                 "from": {
                                     "key_code": "close_bracket",
@@ -2055,7 +2075,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            },                                                                                               
+                            },
                             {
                                 "from": {
                                     "key_code": "9",
@@ -2070,10 +2090,10 @@
                                 },
                                 "to": [
                                     {
-		                                "key_code": "open_bracket",
-		                                  "modifiers": [
-		                                      "left_shift"
-		                                	]																			
+                                        "key_code": "open_bracket",
+                                        "modifiers": [
+                                            "left_shift"
+                                        ]
                                     }
                                 ],
                                 "type": "basic"
@@ -2092,10 +2112,10 @@
                                 },
                                 "to": [
                                     {
-		                                "key_code": "close_bracket",
-		                                  "modifiers": [
-		                                      "left_shift"
-		                                	]																			
+                                        "key_code": "close_bracket",
+                                        "modifiers": [
+                                            "left_shift"
+                                        ]
                                     }
                                 ],
                                 "type": "basic"
@@ -2103,7 +2123,7 @@
                         ]
                     },
                     {
-                        "description": "F9 -> Skip Backward | F10 -> Skip Forward",
+                        "description": "F9 → Skip Backward | F10 → Skip Forward",
                         "manipulators": [
                             {
                                 "from": {
@@ -2146,7 +2166,7 @@
                         ]
                     },
                     {
-                        "description": "fn + WASD -> Arrow Keys",
+                        "description": "fn + WASD → Arrow Keys",
                         "manipulators": [
                             {
                                 "from": {
@@ -2227,7 +2247,7 @@
                         ]
                     },
                     {
-                        "description": "ESC -> Caps Lock",
+                        "description": "ESC → Caps Lock",
                         "manipulators": [
                             {
                                 "from": {
